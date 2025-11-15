@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, viewport-fit=cover'>
     <title>Privacy Policy</title>
     <style>
         :root {
@@ -17,64 +17,141 @@
             --link-color: #999;
             --link-hover-color: #bbb;
         }
-        body { 
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-            padding:1em; 
-            line-height: 1.5;
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-y: auto;
             background-color: var(--bg-color);
             color: var(--text-color);
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            touch-action: manipulation;
+        }
+        .app-wrapper {
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+        }
+        .content-container {
+            flex: 1;
+            padding-top: calc(2.5rem + env(safe-area-inset-top));
+            padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+            padding-left: calc(1rem + env(safe-area-inset-left));
+            padding-right: calc(1rem + env(safe-area-inset-right));
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            line-height: 1.5;
+            max-width: 750px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
         }
         a {
             color: var(--link-color);
-            text-decoration: none;
+            text-decoration: underline;
+            -webkit-text-decoration-skip-ink: none;
+            text-decoration-skip-ink: none;
+            transition: color 0.2s ease;
         }
         a:hover {
             color: var(--link-hover-color);
-            text-decoration: underline;
+        }
+        .back-link {
+            margin-top: 2rem;
+            display: block;
+            padding: 4px;
         }
     </style>
 </head>
 <body>
 <script>
-    // Apply saved theme on load
-    document.addEventListener('DOMContentLoaded', () => {
-        const savedTheme = localStorage.getItem('vibratoMasteryTheme');
-        if (savedTheme === 'dark') {
-            document.body.classList.add('dark-mode');
-        }
-    });
+  // Prevent white flash by applying theme before first paint
+  try {
+    const savedTheme = localStorage.getItem('vibratoMasteryTheme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  } catch (e) {
+    // localStorage not available, ignore
+  }
 </script>
 
-<strong>Privacy Policy</strong> <p>
-    The Vibrato Mastery app is provided as a free app. This SERVICE is intended for use as is.
-</p> <p>
-    This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.
-</p> <p>
-    If you choose to use our Service, then you agree to the collection and use of information in relation to this policy.
-</p> <p><strong>Information Collection and Use</strong></p> <p>
-    The Vibrato Mastery app does not collect any personally identifiable information.
-</p> <p>
-    The app uses your device's microphone to analyze your vocal or instrumental vibrato in real-time. This audio data is processed locally on your device for the sole purpose of providing you with immediate feedback. The audio data is not stored, saved, or transmitted from your device. We do not have access to your audio data.
-</p> <p><strong>Log Data</strong></p> <p>
-    We want to inform you that the app does not collect Log Data.
-</p> <p><strong>Cookies</strong></p> <p>
-    This Service does not use “cookies”.
-</p> <p><strong>Service Providers</strong></p> <p>
-    We do not employ any third-party companies or individuals.
-</p> <p><strong>Security</strong></p> <p>
-    Since no data is collected or stored, there are no security concerns regarding your personal data. The audio processing is performed in a secure environment on your device.
-</p> <p><strong>Links to Other Sites</strong></p> <p>
-    This Service does not contain links to other sites.
-</p> <p><strong>Children’s Privacy</strong></p> <p>
-    This Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13 years of age.
-</p> <p><strong>Changes to This Privacy Policy</strong></p> <p>
-    We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.
-</p> <p>
-    This policy is effective as of 2025-10-15.
-</p> <p><strong>Contact Us</strong></p> <p>
-    If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at vibratomastery@gmail.com.
-</p>
+<div class="app-wrapper">
+    <div class="content-container">
+        <script>
+            // Apply saved theme on load
+            document.addEventListener('DOMContentLoaded', () => {
+                const savedTheme = localStorage.getItem('vibratoMasteryTheme');
+                if (savedTheme === 'dark') {
+                    document.body.classList.add('dark-mode');
+                }
+            });
+        </script>
 
-<a href="index.html">← Back to App</a>
+        <strong>Privacy Policy</strong>
+
+        <p><strong>Effective Date:</strong> 2025-10-15</p>
+        
+        <p>
+            The Vibrato Mastery app is provided as a free app. This SERVICE is intended for use as is and is fully compliant with Google Play Store privacy requirements.
+        </p>
+
+        <p><strong>Information Collection and Use</strong></p>
+        <p>
+            The Vibrato Mastery app <strong>does not collect, store, or transmit any personally identifiable information</strong>. The app uses your device's microphone to analyze your vibrato in real-time. This audio data is processed locally on your device for the sole purpose of providing immediate feedback and is <strong>never stored, saved, or transmitted from your device</strong>. We do not have access to your audio data.
+        </p>
+
+        <p><strong>Microphone Permission</strong></p>
+        <p>
+            The app requires microphone access to analyze vibrato. This permission can be revoked at any time through your device settings (Settings > Apps > Vibrato Mastery > Permissions > Microphone). No audio data is retained after processing.
+        </p>
+
+        <p><strong>Log Data, Cookies, and Tracking</strong></p>
+        <p>
+            The app does not collect log data, use cookies, or employ any tracking technologies. We do not use third-party analytics, advertising networks, or data collection SDKs.
+        </p>
+
+        <p><strong>Third-Party Services</strong></p>
+        <p>
+            We do not employ any third-party companies or individuals to access your data. All processing occurs locally on your device using built-in algorithms. No data is shared with third parties.
+        </p>
+
+        <p><strong>Data Retention and Deletion</strong></p>
+        <p>
+            Since no data is collected, stored, or transmitted, there is no data retained on our servers or systems. All audio data is processed in real-time and immediately discarded. Uninstalling the app removes all local data from your device.
+        </p>
+
+        <p><strong>Your Rights</strong></p>
+        <p>
+            Under GDPR, CCPA, and other applicable laws, you have rights to access, delete, rectify, restrict processing, and data portability. Since we collect no data, these rights are inherently fulfilled. To exercise control, you may revoke microphone permissions or uninstall the app at any time.
+        </p>
+
+        <p><strong>Security</strong></p>
+        <p>
+            Audio processing uses secure, sandboxed APIs on your device. No data is transmitted or stored externally. The app does not access contacts, location, photos, or other personal data.
+        </p>
+
+        <p><strong>Children's Privacy</strong></p>
+        <p>
+            This Service does not address anyone under 13. We do not knowingly collect personally identifiable information from children under 13. Since no data is collected, COPPA compliance is inherent.
+        </p>
+
+        <p><strong>Changes to This Privacy Policy</strong></p>
+        <p>
+            We may update this policy periodically. Changes will be posted on this page and within the app. Continued use after changes constitutes acceptance.
+        </p>
+
+        <p><strong>Contact Us</strong></p>
+        <p>
+            For questions or privacy concerns, contact us at: <strong>vibratomastery@gmail.com</strong>
+        </p>
+
+        <a href="index.html" class="back-link">← Back to App</a>
+    </div>
+</div>
 </body>
 </html>
